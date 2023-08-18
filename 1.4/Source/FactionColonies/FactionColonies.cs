@@ -14,10 +14,12 @@ using Verse.AI.Group;
 
 namespace FactionColonies
 {
+    
+
+
     public class FactionColonies : ModSettings
     {
         private Faction playerFactionRef = null;
-
         public Faction GetVanillaPlayerFaction()
         {
             if (playerFactionRef == null)

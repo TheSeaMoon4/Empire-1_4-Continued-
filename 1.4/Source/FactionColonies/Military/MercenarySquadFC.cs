@@ -484,6 +484,13 @@ namespace FactionColonies
             }
         }
 
+        public void EquipXenotype()
+
+        { if (defaultPawn == null)
+            {
+                defaultPawn.genes.SetXenotype(xenotype1);
+            }
+        }
         public List<ThingWithComps> DroppedWeapons
         {
             get
