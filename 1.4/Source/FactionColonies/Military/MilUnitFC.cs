@@ -61,13 +61,13 @@ namespace FactionColonies
         {
             List<Apparel> apparel = new List<Apparel>();
             List<ThingWithComps> equipment = new List<ThingWithComps>();
-            List<XenotypeDef> xenotypeDef = new List<XenotypeDef>();
+            List<Gene> gene = new List<Gene>();
 
             if (defaultPawn != null)
             {
                 apparel.AddRange(defaultPawn.apparel.WornApparel);
                 equipment.AddRange(defaultPawn.equipment.AllEquipmentListForReading);
-                defaultPawn.genes.SetXenotype(xenotype);
+                gene.AddRange(defaultPawn.genes.GenesListForReading);
 
             Reset:
                 foreach (Apparel cloth in defaultPawn.apparel.WornApparel)
@@ -82,6 +82,11 @@ namespace FactionColonies
                     goto Reset;
                 }
 
+                foreach (Gene xenogene in defaultPawn.genes.GenesListForReading)
+                {
+                    defaultPawn.genes.RemoveGene(xenogene);
+                    goto Reset;
+                }
 
                 defaultPawn.Destroy();
             }
@@ -104,6 +109,11 @@ namespace FactionColonies
                 equipWeapon(weapon);
             }
 
+            foreach (Gene xenogene in gene)
+            {
+                //Log.Message(gene.Label);
+                GenerateXenotype(xenogene);
+            }
 
         }
 
@@ -135,7 +145,11 @@ namespace FactionColonies
 
             MilSquadFC.UpdateEquipmentTotalCostOfSquadsContaining(this);
         }
-
+        public void GenerateXenotype(Gene xenogene)
+        {
+            changeTick();
+            defaultPawn.genes.SetXenotype(xenotype);
+        }
         public void wearEquipment(Apparel Equipment, bool wear)
         {
             changeTick();

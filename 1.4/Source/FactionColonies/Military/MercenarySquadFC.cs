@@ -33,7 +33,7 @@ namespace FactionColonies
         public Map map;
         public Lord lord;
         public XenotypeDef xenotype1;
-        public List<XenotypeDef> XenotypeList;
+        public List<Gene> GeneList;
         public Pawn defaultPawn;
 
         public void ExposeData()
@@ -198,7 +198,6 @@ namespace FactionColonies
             mercenaries = new List<Mercenary>();
             UsedApparelList = new List<Apparel>();
             UsedWeaponList = new List<ThingWithComps>();
-            XenotypeList = new List<XenotypeDef>();
 
             if (outfit == null)
             {
@@ -362,6 +361,7 @@ namespace FactionColonies
             UsedWeaponList = new List<ThingWithComps>();
             UsedApparelList = new List<Apparel>();
             animals = new List<Mercenary>();
+            GeneList = new List<Gene>();
             foreach (MilUnitFC loadout in outfit.units)
             {
                 try
@@ -389,7 +389,7 @@ namespace FactionColonies
                             mercenaries[count].animal = animal;
                             animals.Add(animal);
                         }
-
+                        
                         mercenaries[count].loadout = loadout;
                         mercenaries[count].deployable = mercenaries[count].loadout != faction.militaryCustomizationUtil.blankUnit;
                     }
@@ -405,6 +405,7 @@ namespace FactionColonies
                     {
                         UsedApparelList.AddRange(mercenaries[count].pawn.apparel.WornApparel);
                     }
+
                 }
                 catch (Exception e)
                 {
@@ -484,13 +485,6 @@ namespace FactionColonies
             }
         }
 
-        public void EquipXenotype()
-
-        { if (defaultPawn == null)
-            {
-                defaultPawn.genes.SetXenotype(xenotype1);
-            }
-        }
         public List<ThingWithComps> DroppedWeapons
         {
             get
