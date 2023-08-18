@@ -56,23 +56,13 @@ namespace FactionColonies
             Scribe_Defs.Look(ref animal, "animal");
             Scribe_Defs.Look(ref xenotype, "xenotype");
         }
-        public void generateXenotype()
-
-        {
-            List<XenotypeDef> xenotypeDef = new List<XenotypeDef>();
-            {
-                if (xenotype != null)
-                {
-                    defaultPawn.genes.SetXenotype(xenotype);
-                }
-            }
-        }
 
         public void generateDefaultPawn()
         {
             List<Apparel> apparel = new List<Apparel>();
             List<ThingWithComps> equipment = new List<ThingWithComps>();
             List<XenotypeDef> xenotypeDef = new List<XenotypeDef>();
+            defaultPawn.genes.SetXenotype(xenotype);
 
             if (defaultPawn != null)
             {
