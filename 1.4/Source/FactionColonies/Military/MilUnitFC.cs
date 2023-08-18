@@ -62,7 +62,6 @@ namespace FactionColonies
             List<Apparel> apparel = new List<Apparel>();
             List<ThingWithComps> equipment = new List<ThingWithComps>();
             List<XenotypeDef> xenotypeDef = new List<XenotypeDef>();
-            defaultPawn.genes.SetXenotype(xenotype);
 
             if (defaultPawn != null)
             {
