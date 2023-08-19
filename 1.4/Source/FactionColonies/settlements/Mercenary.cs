@@ -14,7 +14,6 @@ namespace FactionColonies
         public bool deployable = false;
         public int loadID;
         private bool isOnMap = false;
-        public Mercenary xenotype;
         
         public Mercenary()
         {
@@ -39,7 +38,6 @@ namespace FactionColonies
             Scribe_References.Look(ref settlement, "settlement");
             Scribe_References.Look(ref handler, "handler");
             Scribe_References.Look(ref animal, "animal");
-            Scribe_References.Look(ref xenotype, "xenotype");
 
             if (isOnMap)
             {

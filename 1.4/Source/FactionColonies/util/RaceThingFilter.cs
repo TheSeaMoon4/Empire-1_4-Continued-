@@ -251,7 +251,7 @@ namespace FactionColonies.util
                     if (!Allows(mercenary.pawn.kindDef.race))
                     {
                         Mercenary merc = mercenary;
-                        mercenarySquadFc.createNewPawn(ref merc, faction.pawnGroupMakers[0].options.RandomElement().kind);
+                        mercenarySquadFc.createNewPawn(ref merc, faction.pawnGroupMakers[0].options.RandomElement().kind, XenotypeDefOf.Baseliner);
                         newMercs.Add(merc);
                     }
                     else

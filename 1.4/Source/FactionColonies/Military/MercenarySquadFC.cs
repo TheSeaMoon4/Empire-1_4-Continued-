@@ -10,7 +10,7 @@ using Verse.AI.Group;
 
 namespace FactionColonies
 {
-    
+
     public class MercenarySquadFC : IExposable, ILoadReferenceable
     {
         public int loadID = -1;
@@ -204,7 +204,7 @@ namespace FactionColonies
                 for (int k = 0; k < 30; k++)
                 {
                     Mercenary pawn = new Mercenary(true);
-                    createNewPawn(ref pawn, null);
+                    createNewPawn(ref pawn, null, null);
                     mercenaries.Add(pawn);
                 }
             }
@@ -213,7 +213,7 @@ namespace FactionColonies
                 for (int k = 0; k < 30; k++)
                 {
                     Mercenary pawn = new Mercenary(true);
-                    createNewPawn(ref pawn, outfit.units[k].pawnKind);
+                    createNewPawn(ref pawn, outfit.units[k].pawnKind, outfit.units[k].xenotype);
                     mercenaries.Add(pawn);
                 }
             }
@@ -290,8 +290,9 @@ namespace FactionColonies
             merc.pawn = newPawn;
         }
 
-        public void createNewPawn(ref Mercenary merc, PawnKindDef race)
+        public void createNewPawn(ref Mercenary merc, PawnKindDef race, XenotypeDef _xenotype)
         {
+            XenotypeDef xenotypeChoice = _xenotype;
             PawnKindDef raceChoice = race;
             FactionFC factionFc = Find.World.GetComponent<FactionFC>();
 
@@ -300,7 +301,7 @@ namespace FactionColonies
                 raceChoice = FactionColonies.getPlayerColonyFaction().RandomPawnKind();
             }
 
-            Pawn newPawn = PawnGenerator.GeneratePawn(FCPawnGenerator.WorkerOrMilitaryRequest(raceChoice));
+            Pawn newPawn = PawnGenerator.GeneratePawn(FCPawnGenerator.WorkerOrMilitaryRequest(raceChoice, xenotypeChoice));
             newPawn.apparel?.DestroyAll();
             newPawn.equipment?.DestroyAllEquipment();
             //merc = (Mercenary)newPawn;
@@ -309,7 +310,7 @@ namespace FactionColonies
             //Log.Message(newPawn.Name + "   State: Dead - " + newPawn.health.Dead + "    Apparel Count: " + newPawn.apparel.WornApparel.Count());
             merc.pawn = newPawn;
             Log.Message("MercenarySquad");
-            
+
         }
         public void updateSquadStats(int level)
         {
@@ -336,7 +337,7 @@ namespace FactionColonies
 
             //util.deadPawns.Add(pwn);
             Mercenary pawn2 = new Mercenary(true);
-            createNewPawn(ref pawn2, merc.pawn.kindDef);
+            createNewPawn(ref pawn2, merc.pawn.kindDef, merc.pawn.genes.Xenotype);
             mercenaries.Replace(merc, pawn2);
         }
 
@@ -370,7 +371,7 @@ namespace FactionColonies
                     if (mercenaries[count]?.pawn?.kindDef != loadout.pawnKind || mercenaries[count].pawn.Dead)
                     {
                         Mercenary pawn = new Mercenary(true);
-                        createNewPawn(ref pawn, loadout.pawnKind);
+                        createNewPawn(ref pawn, loadout.pawnKind, loadout.xenotype);
                         mercenaries.Replace(mercenaries[count], pawn);
                     }
 
@@ -389,7 +390,7 @@ namespace FactionColonies
                             mercenaries[count].animal = animal;
                             animals.Add(animal);
                         }
-                        
+
                         mercenaries[count].loadout = loadout;
                         mercenaries[count].deployable = mercenaries[count].loadout != faction.militaryCustomizationUtil.blankUnit;
                     }
@@ -474,7 +475,7 @@ namespace FactionColonies
 
                             //Method not static, so create instance of object and define the parameters to the method.
                             var obj = Activator.CreateInstance(typ);
-                            object[] paramArgu = {merc.pawn.equipment.Primary, comp, 1};
+                            object[] paramArgu = { merc.pawn.equipment.Primary, comp, 1 };
 
                             Traverse.Create(obj).Method("TryGenerateAmmoFor", paramArgu).GetValue();
                             Traverse.Create(obj).Method("LoadWeaponWithRandAmmo", merc.pawn.equipment.Primary)
@@ -495,11 +496,11 @@ namespace FactionColonies
                 {
                     if (weapon.ParentHolder is Pawn_EquipmentTracker)
                     {
-                        if ((((Pawn_EquipmentTracker) weapon.ParentHolder).pawn.Faction ==
+                        if ((((Pawn_EquipmentTracker)weapon.ParentHolder).pawn.Faction ==
                              FactionColonies.getPlayerColonyFaction() ||
-                             ((Pawn_EquipmentTracker) weapon.ParentHolder).pawn.Faction ==
+                             ((Pawn_EquipmentTracker)weapon.ParentHolder).pawn.Faction ==
                              Find.FactionManager.OfPlayer) &&
-                            ((Pawn_EquipmentTracker) weapon.ParentHolder).pawn.Dead == false)
+                            ((Pawn_EquipmentTracker)weapon.ParentHolder).pawn.Dead == false)
                         {
                         }
                         else
@@ -529,11 +530,11 @@ namespace FactionColonies
                     //Log.Message(apparel.ParentHolder.ParentHolder.ToString());
                     if (apparel.ParentHolder is Pawn_ApparelTracker)
                     {
-                        if ((((Pawn_ApparelTracker) apparel.ParentHolder).pawn.Faction ==
+                        if ((((Pawn_ApparelTracker)apparel.ParentHolder).pawn.Faction ==
                              FactionColonies.getPlayerColonyFaction() ||
-                             ((Pawn_ApparelTracker) apparel.ParentHolder).pawn.Faction ==
+                             ((Pawn_ApparelTracker)apparel.ParentHolder).pawn.Faction ==
                              Find.FactionManager.OfPlayer) &&
-                            ((Pawn_ApparelTracker) apparel.ParentHolder).pawn.Dead == false)
+                            ((Pawn_ApparelTracker)apparel.ParentHolder).pawn.Dead == false)
                         {
                         }
                         else
