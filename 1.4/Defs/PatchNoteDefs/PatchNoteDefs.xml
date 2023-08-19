@@ -27,6 +27,35 @@
 	</FactionColonies.PatchNoteDef>
 
 	<FactionColonies.PatchNoteDef ParentName="EmpirePatchBase">
+		<defName>0_42_1</defName>
+		<label>Fixed Xenotype generation</label>
+		<description>Xenotype Generation is working now!</description>
+
+		<major>0</major>
+		<minor>42</minor>
+		<patch>1</patch>
+
+		<releaseDay>19</releaseDay>
+		<releaseMonth>8</releaseMonth>
+		<releaseYear>2023</releaseYear>
+
+		<patchNoteType>Patch</patchNoteType>
+
+		<patchNoteLines>
+			<li>With the help of the Talented pinedog, we have managed to fix the Xenotype Generation, so now Xenotypes Unit works Perfectly!</li>
+		</patchNoteLines>
+
+		<additionalNotes>
+			<li>Code written mostly by pinedog with some small tweaks of my own</li>
+			<li>I have taken it upon myself to update this mod - TheSeaMoon</li>
+		</additionalNotes>
+
+		<authors>
+			<li>TheSeaMoon</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+	
+	<FactionColonies.PatchNoteDef ParentName="EmpirePatchBase">
 		<defName>0_42_0</defName>
 		<label>Integrated Additional Building Addon</label>
 		<description>I integrated the Empire - Additional Buildings mod in the main version of Empire</description>
