@@ -509,7 +509,7 @@ namespace FactionColonies
 
                             if (factionfc.hasPolicy(FCPolicyDefOf.authoritarian))
                                 list.Add(new FloatMenuOption("FCBuyLoyalty".Translate(),
-                                    delegate { Find.WindowStack.Add(new FCWindow_Pay_Silver(settlement)); }));
+                                    delegate { Find.WindowStack.Add(new FCWindow_Pay_Silver_Loyalty(settlement)); }));
 
                             if (factionfc.hasPolicy(FCPolicyDefOf.egalitarian))
                                 list.Add(new FloatMenuOption("FCGiveTaxBreak".Translate(), delegate
