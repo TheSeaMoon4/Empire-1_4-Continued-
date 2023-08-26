@@ -56,32 +56,36 @@ namespace FactionColonies
 
         bool traitsChosen;
 
-        Rect buttonMilitaristic = new Rect((float) (600 + 60 * Math.Cos(0 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(0 * Math.PI)), 30, 30);
+        int traitCount = 9;
 
-        Rect buttonAuthoritarian = new Rect((float) (600 + 60 * Math.Cos(0.25 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(0.25 * Math.PI)), 30, 30);
+        float traitRotationArc = 2 / traitCount;
 
-        Rect buttonIsolationist = new Rect((float) (600 + 60 * Math.Cos(0.5 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(0.5 * Math.PI)), 30, 30);
+        Rect buttonMilitaristic = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 0 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 0* Math.PI)), 30, 30);
 
-        Rect buttonFeudal = new Rect((float) (600 + 60 * Math.Cos(0.75 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(0.75 * Math.PI)), 30, 30);
+        Rect buttonAuthoritarian = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 1 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 1 * Math.PI)), 30, 30);
 
-        Rect buttonPacifist = new Rect((float) (600 + 60 * Math.Cos(1 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(1 * Math.PI)), 30, 30);
+        Rect buttonIsolationist = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 2 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 2* Math.PI)), 30, 30);
 
-        Rect buttonEgalitarian = new Rect((float) (600 + 60 * Math.Cos(1.25 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(1.25 * Math.PI)), 30, 30);
+        Rect buttonFeudal = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 3 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 3 * Math.PI)), 30, 30);
 
-        Rect buttonExpansionist = new Rect((float) (600 + 60 * Math.Cos(1.5 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(1.5 * Math.PI)), 30, 30);
+        Rect buttonPacifist = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 4 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 4* Math.PI)), 30, 30);
 
-        Rect buttonTechnocrat = new Rect((float) (600 + 60 * Math.Cos(1.75 * Math.PI)),
-            (float) (100 + 60 * Math.Sin(1.75 * Math.PI)), 30, 30);
+        Rect buttonEgalitarian = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 5 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 5 * Math.PI)), 30, 30);
 
-        Rect buttonSlaver = new Rect((float) (1000 + 240 * Math.Cos(1 * Math.PI)),
-            (float)(400 + 240 * Math.Sin(1.75 * Math.PI)), 30, 30);
+        Rect buttonExpansionist = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 6 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 6* Math.PI)), 30, 30);
+
+        Rect buttonTechnocrat = new Rect((float) (600 + 60 * Math.Cos(traitRotationArc * 7 * Math.PI)),
+            (float) (100 + 60 * Math.Sin(traitRotationArc * 7 * Math.PI)), 30, 30);
+
+        Rect buttonSlaver = new Rect((float) (10000 + 2400 * Math.Cos(traitRotationArc * 8 * Math.PI)),
+            (float)(4000 + 2400 * Math.Sin(traitRotationArc * 8 * Math.PI)), 30, 30);
 
         int numberTraitsSelected;
         bool boolMilitaristic;
