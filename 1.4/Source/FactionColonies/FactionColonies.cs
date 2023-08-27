@@ -1359,12 +1359,12 @@ namespace FactionColonies
             if (ls.ButtonText("selectTaxDeliveryModeButton".Translate() + settings.forcedTaxDeliveryMode)) Find.WindowStack.Add(new FloatMenu(ForcedTaxDeliveryOptions));
 
             ls.Label("FCSettingMinMaxMilitaryAction".Translate());
-            ls.IntRange(ref minMaxDaysTillMilitaryAction, 1, 20);
+            ls.IntRange(ref minMaxDaysTillMilitaryAction, 1, 30);
             settings.minDaysTillMilitaryAction = minMaxDaysTillMilitaryAction.min;
             settings.maxDaysTillMilitaryAction = Math.Max(1, minMaxDaysTillMilitaryAction.max);
 
             ls.Label("FCSettingMinMaxRandomEvent".Translate());
-            ls.IntRange(ref minMaxDaysTillRandomEvent, 0, 20);
+            ls.IntRange(ref minMaxDaysTillRandomEvent, 0, 30);
             settings.minDaysTillRandomEvent = minMaxDaysTillRandomEvent.min;
             settings.maxDaysTillRandomEvent = Math.Max(1, minMaxDaysTillRandomEvent.max);
 

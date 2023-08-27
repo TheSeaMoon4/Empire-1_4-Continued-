@@ -27,6 +27,35 @@
 	</FactionColonies.PatchNoteDef>
 
 	<FactionColonies.PatchNoteDef ParentName="EmpirePatchBase">
+		<defName>0_42_2</defName>
+		<label>Bug Fixes and Settlements Defense Rebalance</label>
+		<description>Fixed some bugs related to Traits and rebalance the Automatic Defense system a bit to be more fair, would appreciate feedback on it</description>
+
+		<major>0</major>
+		<minor>42</minor>
+		<patch>2</patch>
+
+		<releaseDay>27</releaseDay>
+		<releaseMonth>8</releaseMonth>
+		<releaseYear>2023</releaseYear>
+
+		<patchNoteType>Patch</patchNoteType>
+
+		<patchNoteLines>
+			<li>We have a new member on the team! @AutumnLight has contributed to the mod first by fixing and optimizing the Trait Selection Screen!</li>
+		</patchNoteLines>
+
+		<additionalNotes>
+			<li>Code written by AutumnLight and TheSeaMoon</li>
+			<li>I have taken it upon myself to update this mod - TheSeaMoon</li>
+		</additionalNotes>
+
+		<authors>
+			<li>TheSeaMoon</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EmpirePatchBase">
 		<defName>0_42_1</defName>
 		<label>Fixed Xenotype generation</label>
 		<description>Xenotype Generation is working now!</description>

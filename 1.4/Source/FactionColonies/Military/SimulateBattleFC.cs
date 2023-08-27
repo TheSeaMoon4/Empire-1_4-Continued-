@@ -135,32 +135,32 @@ namespace FactionColonies
                     efficiency = .5;
                     break;
                 case TechLevel.Animal:
-                    militaryLevel = 2;
+                    militaryLevel = 1;
                     efficiency = .5;
                     break;
                 case TechLevel.Neolithic:
-                    militaryLevel = 3;
+                    militaryLevel = 1;
                     efficiency = 1;
                     break;
                 case TechLevel.Medieval:
-                    militaryLevel = 4;
+                    militaryLevel = 2;
                     efficiency = 1.2;
                     break;
 
                 case TechLevel.Industrial:
-                    militaryLevel = 4;
+                    militaryLevel = 3;
                     efficiency = 1.2;
                     break;
                 case TechLevel.Spacer:
-                    militaryLevel = 5;
+                    militaryLevel = 3;
                     efficiency = 1.3;
                     break;
                 case TechLevel.Ultra:
-                    militaryLevel = 6;
+                    militaryLevel = 3;
                     efficiency = 1.3;
                     break;
                 case TechLevel.Archotech:
-                    militaryLevel = 6;
+                    militaryLevel = 4;
                     efficiency = 1.5;
                     break;
                 default:
@@ -187,32 +187,32 @@ namespace FactionColonies
                         efficiency = .5;
                         break;
                     case TechLevel.Animal:
-                        militaryLevel = 2;
+                        militaryLevel = 1;
                         efficiency = .5;
                         break;
                     case TechLevel.Neolithic:
-                        militaryLevel = 3;
+                        militaryLevel = 1;
                         efficiency = 1;
                         break;
                     case TechLevel.Medieval:
-                        militaryLevel = 4;
+                        militaryLevel = 2;
                         efficiency = 1.2;
                         break;
 
                     case TechLevel.Industrial:
-                        militaryLevel = 4;
+                        militaryLevel = 3;
                         efficiency = 1.2;
                         break;
                     case TechLevel.Spacer:
-                        militaryLevel = 5;
+                        militaryLevel = 3;
                         efficiency = 1.3;
                         break;
                     case TechLevel.Ultra:
-                        militaryLevel = 6;
+                        militaryLevel = 3;
                         efficiency = 1.3;
                         break;
                     case TechLevel.Archotech:
-                        militaryLevel = 6;
+                        militaryLevel = 4;
                         efficiency = 1.5;
                         break;
                     default:
