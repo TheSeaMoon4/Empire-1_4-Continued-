@@ -133,7 +133,8 @@ namespace FactionColonies
                 typeof(float),
                 typeof(float),
                 typeof(float),
-                typeof(Thing)
+                typeof(Thing),
+                typeof(float)
             });
 
             MethodInfo getShotAngle = type2.GetMethod("GetShotAngle", BindingFlags.Public | BindingFlags.Static);
@@ -161,7 +162,8 @@ namespace FactionColonies
                 shotRotation,
                 shotHeight,
                 shotSpeed,
-                null
+                null,
+                -1
             });
         }
 
