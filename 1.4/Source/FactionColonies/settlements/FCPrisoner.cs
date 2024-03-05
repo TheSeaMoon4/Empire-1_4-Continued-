@@ -25,7 +25,6 @@ namespace FactionColonies
         public bool isReturning;
         public int loadID;
         public FCWorkLoad workload;
-        public Pawn_HealthTracker healthTracker;
         
 
         public FCPrisoner () 
@@ -37,8 +36,6 @@ namespace FactionColonies
             prisoner = pawn;
             this.settlement = settlement;
             unrest = 0;
-            healthTracker = new Pawn_HealthTracker(pawn);
-            healthTracker = pawn.health;
             health = (float)Math.Round(prisoner.health.summaryHealth.SummaryHealthPercent * 100);
             isReturning = false;
             loadID = Find.World.GetComponent<FactionFC>().GetNextPrisonerID();
@@ -55,7 +52,6 @@ namespace FactionColonies
             Scribe_Values.Look(ref isReturning, "isReturning");
             Scribe_Values.Look(ref loadID, "loadID");
             Scribe_Values.Look(ref workload, "workload");
-            Scribe_Deep.Look(ref healthTracker, "healthTracker", new object[] { prisoner });
         }
 
 
