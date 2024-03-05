@@ -131,23 +131,7 @@ namespace FactionColonies
                 //Info Button
                 if (Widgets.ButtonTextSubtle(buttonInfo, "ViewInfo".Translate()))
                 {
-                    Pawn pawn = new Pawn();
-                    pawn = prisoner.prisoner;
-
-                    if (prisoner.healthTracker != null)
-                    {
-                        prisoner.prisoner.health = prisoner.healthTracker;
-                    }
-                    else
-                    {
-                        prisoner.prisoner.health = new Pawn_HealthTracker(prisoner.prisoner);
-                        prisoner.healthTracker = new Pawn_HealthTracker(prisoner.prisoner);
-                    }
-
-                    pawn.health = prisoner.healthTracker;
-
-
-                    Find.WindowStack.Add(new Dialog_InfoCard(pawn));
+                    Find.WindowStack.Add(new Dialog_InfoCard(prisoner.prisoner));
                 }
 
                 //Action button
@@ -169,15 +153,6 @@ namespace FactionColonies
 
                     list.Add(new FloatMenuOption("ReturnToPlayer".Translate(), delegate
                     {
-                        if (prisoner.healthTracker != null)
-                        {
-                            prisoner.prisoner.health = prisoner.healthTracker;
-                        } else
-                        {
-                            prisoner.prisoner.health = new Pawn_HealthTracker(prisoner.prisoner);
-                            prisoner.healthTracker = new Pawn_HealthTracker(prisoner.prisoner);
-                        }
-
                         if (!HealthUtility.TryAnesthetize(prisoner.prisoner)) HealthUtility.DamageUntilDowned(prisoner.prisoner, false);
 
                         if (prisoner.prisoner.guest == null)

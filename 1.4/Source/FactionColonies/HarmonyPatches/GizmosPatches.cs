@@ -15,7 +15,7 @@ namespace FactionColonies
 		{
 			List<Gizmo> output = __result.ToList();
 			if (__result == null || __instance?.Faction == null || !output.Any() ||
-				!(__instance.Map.Parent is WorldSettlementFC))
+				__instance.Map == null || !(__instance.Map.Parent is WorldSettlementFC))
 			{
 				return;
 			}
